@@ -26,4 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)buttonPressed:(UIButton *)sender {
+    NSArray *predictionArray = [[NSArray alloc] initWithObjects:@"It is certain",@"It is decidedly so",@"All signs say YES",@"The stars are not aligned", @"The reply is no",@"It is doubtful", @"Better not tell you now",@"Concentrate and ask again",@"Unable to answer now", nil];
+   
+    self.predictionLabel.text = [predictionArray objectAtIndex:5];
+}
 @end
