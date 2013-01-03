@@ -13,10 +13,24 @@
 @end
 
 @implementation ViewController
+@synthesize predictionLabel;
+@synthesize predictionArray;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.predictionArray = [[NSArray alloc] initWithObjects:
+                            @"It is certain",
+                            @"It is decidedly so",
+                            @"All signs say YES",
+                            @"The stars are not aligned",
+                            @"The reply is no",
+                            @"It is doubtful",
+                            @"Better not tell you now",
+                            @"Concentrate and ask again",
+                            @"Unable to answer now",
+                            @"Maybe yes", nil];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -27,8 +41,9 @@
 }
 
 - (IBAction)buttonPressed:(UIButton *)sender {
-    NSArray *predictionArray = [[NSArray alloc] initWithObjects:@"It is certain",@"It is decidedly so",@"All signs say YES",@"The stars are not aligned", @"The reply is no",@"It is doubtful", @"Better not tell you now",@"Concentrate and ask again",@"Unable to answer now", nil];
-   
-    self.predictionLabel.text = [predictionArray objectAtIndex:5];
+    NSUInteger index = arc4random_uniform(self.predictionArray.count);
+    self.predictionLabel.text = [self.predictionArray objectAtIndex:index];
 }
+
+   
 @end
